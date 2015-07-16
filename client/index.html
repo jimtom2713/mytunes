@@ -18,9 +18,11 @@
     <script src="views/LibraryView.js"></script>
     <script src="views/LibraryEntryView.js"></script>
     <script src="views/AppView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
+    <script src="views/SongQueueView.js"></script>
 
     <script>
-      $(function(){
+      // $(function(){
         // set up model objects
         var library = new Songs(songData);
         var app = new AppModel({library: library});
@@ -30,7 +32,7 @@
 
         // put the view onto the screen
         $('body').append(appView.render());
-      });
+      // });
     </script>
   </body>
 </html>
