@@ -12,7 +12,6 @@ var AppView = Backbone.View.extend({
       var currentSong = model.get('currentSong');
       this.playerView.setSong(currentSong);
       currentSong.set('playCount', currentSong.get('playCount') + 1);
-      this.libraryView.render();
     }, this);
 
     this.playerView.$el.on('play', function(e){
@@ -25,7 +24,6 @@ var AppView = Backbone.View.extend({
 
       var newSong = this.model.get('songQueue').at(0);
       this.model.updateCurrentSong(newSong);
-      this.playerView.setSong(newSong);
     }.bind(this));
   },
 
