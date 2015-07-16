@@ -7,6 +7,20 @@ var AppModel = Backbone.Model.extend({
 
     this.set('isPlaying', false);
 
+    this.on('ended', function(){
+      this.set('isPlaying', false);
+      this.get('songQueue').shift();
+
+      var newSong = this.get('songQueue').at(0);
+      if(newSong){
+        this.updateCurrentSong(newSong);
+      }
+    }, this);
+
+    this.on('play', function(){
+      this.set('isPlaying', true);
+    }, this);
+
     /* Note that 'this' is passed as the third argument. That third argument is
     the context. The 'play' handler will always be bound to that context we pass in.
     In this example, we're binding it to the App. This is helpful because otherwise

@@ -1,0 +1,12 @@
+body {
+  /*background-color: blue;*/
+}
+
+audio {
+  position: relative;
+}
+
+.song {
+  padding: 5px;
+  background-color: orange;
+}

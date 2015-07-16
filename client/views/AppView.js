@@ -15,15 +15,19 @@ var AppView = Backbone.View.extend({
     }, this);
 
     this.playerView.$el.on('play', function(e){
-      this.model.set('isPlaying', true);
+      this.model.trigger('play');
+      // this.model.set('isPlaying', true);
     }.bind(this));
 
     this.playerView.$el.on('ended', function(e){
-      this.model.set('isPlaying', false);
-      this.model.get('songQueue').shift();
+      this.model.trigger('ended');
+      // this.model.set('isPlaying', false);
+      // this.model.get('songQueue').shift();
 
-      var newSong = this.model.get('songQueue').at(0);
-      this.model.updateCurrentSong(newSong);
+      // var newSong = this.model.get('songQueue').at(0);
+      // if(newSong){
+      //   this.model.updateCurrentSong(newSong);
+      // }
     }.bind(this));
   },
 
